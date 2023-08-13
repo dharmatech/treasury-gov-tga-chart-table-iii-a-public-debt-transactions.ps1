@@ -15,14 +15,14 @@ $base = 'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/acco
 
 $date = (Get-Date).AddDays(-1000).ToString('yyyy-MM-dd')
 
-$result_issues_bills_regular_series = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bills,security_type_desc:eq:Regular Series&fields=record_date,transaction_today_amt&page[number]=1&page[size]=600' -f $date) 
-$result_issues_bills_cash_series    = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bills,security_type_desc:eq:Cash Management Series&fields=record_date,transaction_today_amt&page[number]=1&page[size]=600' -f $date) 
-$result_issues_notes =                Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Notes&fields=record_date,transaction_today_amt&page[number]=1&page[size]=600' -f $date) 
-$result_issues_bonds =                Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bonds&fields=record_date,transaction_today_amt&page[number]=1&page[size]=600' -f $date) 
+$result_issues_bills_regular_series = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bills,security_type_desc:eq:Regular Series&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
+$result_issues_bills_cash_series    = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bills,security_type_desc:eq:Cash Management Series&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
+$result_issues_notes =                Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Notes&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
+$result_issues_bonds =                Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Issues,security_type:eq:Bonds&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
 
-$result_redemptions_bills = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Bills&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1000' -f $date) 
-$result_redemptions_notes = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Notes&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1000' -f $date) 
-$result_redemptions_bonds = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Bonds&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1000' -f $date) 
+$result_redemptions_bills = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Bills&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
+$result_redemptions_notes = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Notes&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
+$result_redemptions_bonds = Invoke-RestMethod -Method Get -Uri ($base + '/dts_table_3a?filter=record_date:gte:{0},transaction_type:eq:Redemptions,security_type:eq:Bonds&fields=record_date,transaction_today_amt&page[number]=1&page[size]=1100' -f $date) 
 
 function null_small_amounts ($data)
 {
